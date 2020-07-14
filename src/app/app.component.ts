@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'priyanka';
+  public user = {
+    name: 'Izzat Nadiri',
+    age: 26,
+  };
+
+  constructor(private modalService: NgbModal) {}
 }

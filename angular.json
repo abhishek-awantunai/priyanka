@@ -64,7 +64,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "priyanka:build:production"
+              "browserTarget": "priyanka:build:production",
+              "aot": true
             }
           }
         },

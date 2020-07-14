@@ -14,8 +14,9 @@
  * Learn more in https://angular.io/guide/browser-support
  */
 
-/***************************************************************************************************
- * BROWSER POLYFILLS
+import '@angular/localize/init';
+
+/**************************************************************************************************** BROWSER POLYFILLS
  */
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
@@ -55,8 +56,7 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
+import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
