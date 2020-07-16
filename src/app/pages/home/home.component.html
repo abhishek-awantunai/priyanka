@@ -1,3 +1,6 @@
-<app-header></app-header>
-<p>home works!</p>
-<p [routerLink]="['/product']" routerLinkActive="router-link-active">click me</p>
+<div class="home">
+  <app-header [abba]="'dabba chabba'" (transmitFromKeypress)="transmitFromKeypressHandler($event)"></app-header>
+  <p>Hi {{ userName }}, you are welcome</p>
+  <p>Hi footer baba {{ city }} , you are welcome</p>
+  <app-footer (transmitSelectedCity)="handleTransmitSelectedCity($event)" [abba]="'dabba chabba'"></app-footer>
+</div>
