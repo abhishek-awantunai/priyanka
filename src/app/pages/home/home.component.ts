@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
   userName: String;
   city: String;
 
+  twoWayDataBindingVariable: String = 'fdfd';
+
   constructor(public _commonService: CommonService) {}
 
   ngOnInit(): void {}

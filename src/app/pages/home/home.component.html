@@ -1,8 +1,34 @@
 <div class="home">
-  <app-header [abba]="'dabba chabba'" (transmitFromKeypress)="transmitFromKeypressHandler($event)"></app-header>
+  <app-header [abba]="'Header Component'" (transmitFromKeypress)="transmitFromKeypressHandler($event)">
+    jhsdgfkdsgkjsdkjfdjskhf dsh fkdskjfjkds hfks
+    <h1>
+      Header 1
+    </h1>
+    <h2>
+      Header 2
+    </h2>
+    <h3>
+      Header 3
+    </h3>
+  </app-header>
   <p>Hi {{ userName }}, you are welcome</p>
   <p>From Service {{ _commonService.userName }}</p>
   <a [routerLink]="['/product']">go to product page</a>
   <p>Hi footer baba {{ city }} , you are welcome</p>
-  <app-footer (transmitSelectedCity)="handleTransmitSelectedCity($event)" [abba]="'dabba chabba'"></app-footer>
+  <input type="text" />
+  <!-- <pre>
+    {{ _commonService.sampleData | json }}
+  </pre> -->
+  <app-footer (transmitSelectedCity)="handleTransmitSelectedCity($event)" [abba]="'Footer component'"></app-footer>
 </div>
+
+
+<!-- <div class="home">
+  <p>
+    Two way data binding example
+  </p>
+  <input type="text" [(ngModel)]="twoWayDataBindingVariable" />
+  <p>
+    {{ twoWayDataBindingVariable }}
+  </p>
+</div> -->
