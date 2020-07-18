@@ -1,6 +1,8 @@
 <div class="home">
   <app-header [abba]="'dabba chabba'" (transmitFromKeypress)="transmitFromKeypressHandler($event)"></app-header>
   <p>Hi {{ userName }}, you are welcome</p>
+  <p>From Service {{ _commonService.userName }}</p>
+  <a [routerLink]="['/product']">go to product page</a>
   <p>Hi footer baba {{ city }} , you are welcome</p>
   <app-footer (transmitSelectedCity)="handleTransmitSelectedCity($event)" [abba]="'dabba chabba'"></app-footer>
 </div>

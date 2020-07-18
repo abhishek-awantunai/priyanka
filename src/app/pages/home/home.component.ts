@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../../shared/services/commmon.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomeComponent implements OnInit {
   userName: String;
   city: String;
 
-  constructor() {}
+  constructor(public _commonService: CommonService) {}
 
   ngOnInit(): void {}
 

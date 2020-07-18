@@ -1,4 +1,5 @@
 import { EventEmitter, Component, Input, Output } from '@angular/core';
+import { CommonService } from '../../services/commmon.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { EventEmitter, Component, Input, Output } from '@angular/core';
         placeholder="Enter text"
         (keyup)="getInputValue($event)"
       />
+      <p>{{ _commonService.userName }}</p>
       <h1>{{ abba }}</h1>
     </div>
   `,
@@ -27,7 +29,10 @@ export class HeaderComponent {
   @Output('transmitFromKeypress')
   transmitFromKeypress: EventEmitter<String> = new EventEmitter();
 
+  constructor(public _commonService: CommonService) {}
+
   getInputValue(event) {
     this.transmitFromKeypress.emit(event.target.value);
+    this._commonService.setUserName(event.target.value);
   }
 }

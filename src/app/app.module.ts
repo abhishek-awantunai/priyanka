@@ -1,3 +1,4 @@
+import { CommonService } from './shared/services/commmon.service';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -25,7 +26,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
+  // providers: [CommonService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
