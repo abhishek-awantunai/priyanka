@@ -1,4 +1,4 @@
-<div class="home">
+<!-- <div class="home">
   <app-header [abba]="'Header Component'" (transmitFromKeypress)="transmitFromKeypressHandler($event)">
     jhsdgfkdsgkjsdkjfdjskhf dsh fkdskjfjkds hfks
     <h1>
@@ -16,11 +16,8 @@
   <a [routerLink]="['/product']">go to product page</a>
   <p>Hi footer baba {{ city }} , you are welcome</p>
   <input type="text" />
-  <!-- <pre>
-    {{ _commonService.sampleData | json }}
-  </pre> -->
   <app-footer (transmitSelectedCity)="handleTransmitSelectedCity($event)" [abba]="'Footer component'"></app-footer>
-</div>
+</div> -->
 
 
 <!-- <div class="home">
@@ -31,4 +28,34 @@
   <p>
     {{ twoWayDataBindingVariable }}
   </p>
+</div> -->
+
+
+
+<!-- <div class="row home">
+  <p>Ngfor, NgIf implementation</p>
+  {{ sampleData }}
+  <p *ngFor="let item of sampleObjectData; let i = index;">
+    <span [class.disabled]="item.showMe" [ngClass]="{'abba': item.showMe, 'dsds': item.showMe}" class="list-style">
+      <span [style.background]="!item.showMe ? 'red' : 'black'"
+        [ngStyle]="{'marginfalse': !item.showMe ? '10px' : '0px'}">Data index - {{ i }} : {{ item.a }}</span>
+    </span>
+  </p>
+</div> -->
+
+
+<!-- <div class="row table">
+  <p>ngswitch Implementaion</p>
+  <p>{{switchVariable}}</p>
+  <span [ngSwitch]="switchVariable">
+    <p *ngSwitchCase="1">
+      1 aaya
+    </p>
+    <p *ngSwitchCase="2">
+      2 aaya
+    </p>
+    <p *ngSwitchDefault>
+      kdfklsflksd
+    </p>
+  </span>
 </div> -->

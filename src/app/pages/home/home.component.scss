@@ -1,4 +1,11 @@
 .home {
   border: 1px solid green;
   padding: 15px;
+  .list-style {
+    border: 1px dashed grey;
+    padding: 5px;
+    &.disabled {
+      color: red;
+    }
+  }
 }
