@@ -1,0 +1,51 @@
+<!-- TEMPLATE DRIVEN FORM -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <!-- put any name for template variable with #<loginform> and equate it to ngForm  
+          also you can either use submit with form or click with button also its compulury to put 
+          name and ngModel on each input / radio / checkbox / select / textarea to register
+      -->
+      <form #loginform="ngForm" (submit)="submitForm(loginform?.value)" novalidate>
+        <div class="form-group">
+          <label for="fname">First Name: </label>
+          <input type="text" class="form-control" id="fname" name="fname" ngModel maxlength="10" minlength="5" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name:</label>
+          <input type="text" class="form-control" id="lname" name="lname" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="text" class="form-control" id="age" name="age" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email" name="email" ngModel maxlength="10" required>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="password" ngModel required>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember" ngModel> Remember
+            me</label>
+        </div>
+        <button type="submit" class="btn btn-primary"
+          [disabled]="!(loginform?.valid && loginform?.controls?.remember?.value)">Submit</button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <p>
+        LOGIN FORM : {{ loginform?.valid }} < true if login form valid>
+      </p>
+      <p>
+        REMEMBER CHECKBOX : {{ loginform?.controls?.remember?.value }} < true if user checks checkbox>
+      </p>
+      <p>
+        WHOLE CONDITION : {{ !(loginform?.valid && loginform?.controls?.remember?.value) }}
+      </p>
+    </div>
+  </div>
+</div>
