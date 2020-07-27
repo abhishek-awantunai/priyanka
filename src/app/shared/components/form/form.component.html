@@ -1,4 +1,9 @@
 <!-- TEMPLATE DRIVEN FORM -->
+<!-- 
+touched untouched (based on if user had touched the input or not)
+pristine dirty (based on if user had selected the input and have changed its value)
+valid invalid (bassed on validation params like maxlength pattern minlength)
+-->
 
 <div class="container-fluid">
   <div class="row">
@@ -9,24 +14,40 @@
       -->
       <form #loginform="ngForm" (submit)="submitForm(loginform?.value)" novalidate>
         <div class="form-group">
-          <label for="fname">First Name: </label>
-          <input type="text" class="form-control" id="fname" name="fname" ngModel maxlength="10" minlength="5" required>
+          <label for="fname">First Name :</label>
+          <input type="text" class="form-control"
+            [class.error]="loginform?.controls?.fname?.dirty && loginform?.controls?.fname?.invalid" id="fname"
+            name="fname" ngModel maxlength="10" minlength="5" required>
+          <ng-container *ngIf="loginform?.controls?.fname?.dirty && loginform?.controls?.fname?.invalid">
+            <p class="error-message" *ngIf="loginform?.controls?.fname?.errors?.required">First name is required</p>
+            <p class="error-message" *ngIf="loginform?.controls?.fname?.errors?.minlength">At least 5 characters</p>
+            <p class="error-message" *ngIf="loginform?.controls?.fname?.errors?.maxlength">Maxlength is 10 characters
+            </p>
+          </ng-container>
         </div>
         <div class="form-group">
           <label for="lname">Last name:</label>
-          <input type="text" class="form-control" id="lname" name="lname" ngModel required>
+          <input type="text" class="form-control"
+            [class.error]="loginform?.controls?.lname?.dirty && loginform?.controls?.lname?.invalid" id="lname"
+            name="lname" ngModel required>
         </div>
         <div class="form-group">
           <label for="age">Age:</label>
-          <input type="text" class="form-control" id="age" name="age" ngModel required>
+          <input type="text" class="form-control"
+            [class.error]="loginform?.controls?.age?.dirty && loginform?.controls?.age?.invalid" id="age" name="age"
+            ngModel required>
         </div>
         <div class="form-group">
           <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email" name="email" ngModel maxlength="10" required>
+          <input type="email" class="form-control"
+            [class.error]="loginform?.controls?.email?.dirty && loginform?.controls?.email?.invalid" id="email"
+            name="email" ngModel maxlength="10" required>
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" name="password" ngModel required>
+          <input type="password" class="form-control"
+            [class.error]="loginform?.controls?.password?.dirty && loginform?.controls?.password?.invalid" id="pwd"
+            name="password" ngModel required>
         </div>
         <div class="checkbox">
           <label><input type="checkbox" name="remember" ngModel> Remember
