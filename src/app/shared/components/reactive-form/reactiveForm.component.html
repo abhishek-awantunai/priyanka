@@ -1,0 +1,61 @@
+<!-- TEMPLATE DRIVEN FORM -->
+<!-- 
+touched untouched (based on if user had touched the input or not)
+pristine dirty (based on if user had selected the input and have changed its value)
+valid invalid (bassed on validation params like maxlength pattern minlength)
+-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <!-- put any name for template variable with #<loginform> and equate it to ngForm  
+          also you can either use submit with form or click with button also its compulury to put 
+          name and ngModel on each input / radio / checkbox / select / textarea to register
+      -->
+      <!-- <form novalidate>
+        <div class="form-group">
+          <label for="fname">First Name :</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name:</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" />
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember" /> Remember
+            me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> -->
+      <form [formGroup]="emailForm">
+        <input class="form-control"
+          [class.error]="emailForm.get('fname')['touched'] && emailForm.get('fname')['invalid']" type="text"
+          formControlName="fname" />
+        <ng-container *ngIf="emailForm.get('fname')['touched']">
+          <p *ngIf="emailForm.get('fname').errors.required">required message</p>
+          <p *ngIf="emailForm.get('fname').errors.minlength">minlength message</p>
+        </ng-container>
+
+        <ng-container formGroupName="address">
+          <input class="form-control" type="text" formControlName="city" />
+        </ng-container>
+
+        <button (click)="updatenput()">update</button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+    </div>
+  </div>
+</div>
