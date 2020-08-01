@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reactiveform',
@@ -9,25 +14,38 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ReactiveFormComponent {
   emailForm: FormGroup;
 
-  constructor() {
-    this.emailForm = new FormGroup({
-      fname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      address: new FormGroup({
-        city: new FormControl('', [
-          Validators.required,
-          Validators.pattern(
-            /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i
-          ),
-        ]),
+  constructor(private _fb: FormBuilder) {
+    // this.emailForm = new FormGroup({
+    //   fname: new FormControl('', [
+    //     Validators.required,
+    //     Validators.minLength(5),
+    //   ]),
+    //   address: new FormGroup({
+    //     city: new FormControl('', [
+    //       Validators.required,
+    //       Validators.pattern(
+    //         /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i
+    //       ),
+    //     ]),
+    //   }),
+    // });
+
+    this.emailForm = this._fb.group({
+      fname: ['', [Validators.required, Validators.minLength(5)]],
+      lname: [''],
+      age: [''],
+      email: [''],
+      password: [''],
+      remember: [''],
+      address: this._fb.group({
+        street: [''],
+        city: [''],
+        country: [''],
       }),
     });
   }
 
   updatenput() {
-    console.log(this.emailForm);
-    console.log(this.emailForm.get('fname')['invalid']);
+    console.log(this.emailForm.value);
   }
 }

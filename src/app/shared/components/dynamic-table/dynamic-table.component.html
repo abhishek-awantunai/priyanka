@@ -1,0 +1,22 @@
+<input type="number" max="100" #inputVal />
+<button (click)="getTableData(inputVal?.value)">Get table data</button>
+
+<div class="table-container">
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>userId</th>
+      <th>title</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let table of tableData">
+      <td>{{ table.id }}</td>
+      <td>{{ table.userId }}</td>
+      <td>{{ table.title }}</td>
+      <td>{{ table.body }}</td>
+    </tr>
+    <tr *ngIf="tableData?.length === 0">
+      <td colspan="4">No data found</td>
+    </tr>
+  </table>
+</div>
